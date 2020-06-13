@@ -100,9 +100,7 @@ class _Parameter extends State<Parameter> {
                     borderRadius: BorderRadius.circular(30)),
                 child: FlatButton(
                     onPressed: () {
-                      if (number.text != "" &&
-                          sample.text != "" &&
-                          freq.text != "") {
+                      if (number.text != "" && sample.text != "") {
                         Navigator.push(
                             context,
                             CupertinoPageRoute(
@@ -122,7 +120,6 @@ class _Parameter extends State<Parameter> {
                       }
                       number.clear();
                       sample.clear();
-                      freq.clear();
                     },
                     child: Text(
                       "Submit",
@@ -238,14 +235,7 @@ Widget ViewData(context, String number, String sample) {
             builder: (BuildContext context, AsyncSnapshot snapshot) {
               if (snapshot.hasData) {
                 Map data = snapshot.data;
-                if (data['time'] != null) {
-                  return Center(child: Text(data['time'].toString()));
-                } else {
-                  //no data
-                  return Center(
-                    child: Text("No Lenght"),
-                  );
-                }
+                return Center(child: Text(data['time'].toString()));
               } else {
                 //spinner
                 return Center(
@@ -269,17 +259,18 @@ Widget PlotData(BuildContext context, String number, String sample) {
                     temp.add(Point(data['time'][i], data['signal'][i]));
                   }
                   return Container(
-                    child: new Plot(
+                    child: Center(
+                        child: Plot(
                       height: 400.0,
                       data: data.isEmpty ? [Point(0.0, 0.0)] : temp,
-                      gridSize: new Offset(2.0, 2.0),
-                      style: new PlotStyle(
+                      gridSize: Offset(2.0, 2.0),
+                      style: PlotStyle(
                         pointRadius: 3.0,
                         outlineRadius: 1.0,
                         trace: true,
                         primary: Colors.white,
                         secondary: Colors.orange,
-                        textStyle: new TextStyle(
+                        textStyle: TextStyle(
                           fontSize: 8.0,
                           color: Colors.blueGrey,
                         ),
@@ -288,9 +279,9 @@ Widget PlotData(BuildContext context, String number, String sample) {
                       ),
                       padding:
                           const EdgeInsets.fromLTRB(40.0, 12.0, 12.0, 40.0),
-                      xTitle: 'My X Title',
-                      yTitle: 'My Y Title',
-                    ),
+                      xTitle: 'Time',
+                      yTitle: 'Signal',
+                    )),
                   );
                 } else {
                   //no data
