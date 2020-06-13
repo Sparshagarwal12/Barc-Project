@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:maths/FrequencyDomain.dart';
 import 'package:maths/analysis.dart';
 import 'package:maths/sendPara.dart';
 
@@ -151,7 +152,7 @@ class DashBoard extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 CupertinoPageRoute(
-                                    builder: (context) => Parameter()));
+                                    builder: (context) => FrequencyPara()));
                           },
                           child: Container(
                             height: MediaQuery.of(context).size.height / 5,

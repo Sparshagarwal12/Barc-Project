@@ -9,15 +9,15 @@ import 'dart:convert';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:maths/analysis.dart';
 
-class Parameter extends StatefulWidget {
+class FrequencyPara extends StatefulWidget {
   @override
-  _Parameter createState() => _Parameter();
+  _FrequencyPara createState() => _FrequencyPara();
 }
 
 List<Point> temp = [];
 Future<Map> getUri(String number, String sample) async {
   String url =
-      'https://barc.herokuapp.com/signal/?sampnum=$number&sampfreq=$sample';
+      'https://barc.herokuapp.com/fft/?sampnum=$number&sampfreq=$sample';
   http.Response response = await http.get(url);
   return json.decode(response.body);
 }
@@ -26,7 +26,7 @@ TextEditingController number = TextEditingController();
 TextEditingController sample = TextEditingController();
 TextEditingController freq = TextEditingController();
 
-class _Parameter extends State<Parameter> {
+class _FrequencyPara extends State<FrequencyPara> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -237,8 +237,8 @@ Widget ViewData(context, String number, String sample) {
             builder: (BuildContext context, AsyncSnapshot snapshot) {
               if (snapshot.hasData) {
                 Map data = snapshot.data;
-                if (data['time'] != null) {
-                  return Center(child: Text(data['time'].toString()));
+                if (data['freq'] != null) {
+                  return Center(child: Text(data['freq'].toString()));
                 } else {
                   return Center(child: Text("No Length"));
                 }
@@ -261,9 +261,9 @@ Widget PlotData(BuildContext context, String number, String sample) {
             builder: (BuildContext context, AsyncSnapshot snapshot) {
               if (snapshot.hasData) {
                 Map data = snapshot.data;
-                if (data['time'] != null) {
-                  for (int i = 0; i < int.parse(number); i++) {
-                    temp.add(Point(data['time'][i], data['signal'][i]));
+                if (data['freq'] != null) {
+                  for (int i = 0; i < data['freq'].length; i++) {
+                    temp.add(Point(data['fft'][i], data['freq'][i]));
                   }
                   return Container(
                     child: Center(
