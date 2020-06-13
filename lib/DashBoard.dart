@@ -36,7 +36,7 @@ class DashBoard extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 CupertinoPageRoute(
-                                    builder: (context) => Analysis()));
+                                    builder: (context) => Parameter()));
                           },
                           child: Container(
                             height: MediaQuery.of(context).size.height / 5,
@@ -57,7 +57,7 @@ class DashBoard extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20)),
                             child: Center(
                                 child: Text(
-                              "Time/Frequency Domain Analysis",
+                              "Time Domain Analysis",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 20,
@@ -172,7 +172,7 @@ class DashBoard extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(20)),
                             child: Center(
                                 child: Text(
-                              "Set Parameter",
+                              "Frequency Domain Analysis",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontSize: 20,
