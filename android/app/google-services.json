@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "534479044301",
+    "firebase_url": "https://barc-4034b.firebaseio.com",
+    "project_id": "barc-4034b",
+    "storage_bucket": "barc-4034b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:534479044301:android:e182dc62246b93c53bf384",
+        "android_client_info": {
+          "package_name": "com.example.maths"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "534479044301-9kdnt3ihmtmaj7eupfdo53uq4igfaqu7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.maths",
+            "certificate_hash": "a867b04e998796897ad6e46f7428749397ebf7dc"
+          }
+        },
+        {
+          "client_id": "534479044301-lqro8u17l67j8vvur3ehtsij2lc7hmm6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvqylYL_RQSbA-YMbETsFHMQysqAbAw7A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "534479044301-lqro8u17l67j8vvur3ehtsij2lc7hmm6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
