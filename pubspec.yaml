@@ -82,8 +82,15 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 
   fonts:
-    - family: Philosopher
+    - family: BebasNeue
       fonts:
-        - asset: fonts/Philosopher-Regular.ttf
-        - asset: fonts/Philosopher-Italic.ttf
-          style: italic
+        - asset: fonts/BebasNeue-Regular.ttf
+    - family: Comfortaa
+      fonts:
+        - asset: fonts/Comfortaa-Regular.ttf
+    - family: Quicksand
+      fonts:
+        - asset: fonts/Quicksand-Regular.ttf
+    - family: Pacifico
+      fonts:
+        - asset: fonts/Pacifico-Regular.ttf

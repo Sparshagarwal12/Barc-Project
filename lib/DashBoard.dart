@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:maths/DominantFreq.dart';
 import 'package:maths/FrequencyDomain.dart';
 import 'package:maths/analysis.dart';
 import 'package:maths/sendPara.dart';
@@ -12,24 +11,17 @@ class DashBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "SIH 2020",
-        ),
-      ),
       body: Container(
+          color: Colors.white,
           child: ListView(
-        children: <Widget>[
-          Center(
-              child: Text("Laser Vibratometer UI",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontSize: 50,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Philosopher'))),
-          SizedBox(height: 40),
-          Row(
+            physics: BouncingScrollPhysics(),
             children: <Widget>[
+              Container(
+                  alignment: Alignment.centerLeft,
+                  padding: EdgeInsets.only(top: 20.0, left: 20.0),
+                  child: Text("Laser Vibratometer UI",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(fontSize: 40, fontFamily: 'BebasNeue'))),
               Expanded(
                   child: Padding(
                       padding: EdgeInsets.all(5),
@@ -41,30 +33,27 @@ class DashBoard extends StatelessWidget {
                                     builder: (context) => Parameter()));
                           },
                           child: Container(
-                            height: MediaQuery.of(context).size.height / 5,
-                            width: MediaQuery.of(context).size.width / 2,
+                            margin: EdgeInsets.all(10.0),
+                            height: MediaQuery.of(context).size.height / 6,
+                            width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Color(0xFF48b1bf),
-                                    blurRadius: 10.0, // soften the shadow
-                                    spreadRadius: 2.0, //extend the shadow
-                                    offset: Offset(
-                                      3.0, // Move to right 10  horizontally
-                                      3.0, // Move to bottom 10 Vertically
-                                    ),
-                                  )
+                                      color: Color(0xFFfed7c3),
+                                      blurRadius: 10.0,
+                                      offset: Offset(1, 8.0))
                                 ],
-                                gradient: LinearGradient(colors: color),
+                                color: Color(0xFFf8b195),
                                 borderRadius: BorderRadius.circular(20)),
                             child: Center(
                                 child: Text(
                               "Time Domain Analysis",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                                fontFamily: "Comfortaa",
+                                fontSize: 18,
+                                color: Colors.white,
+                              ),
                             )),
                           )))),
               Expanded(
@@ -78,37 +67,29 @@ class DashBoard extends StatelessWidget {
                                     builder: (context) => Dominant()));
                           },
                           child: Container(
-                            height: MediaQuery.of(context).size.height / 5,
-                            width: MediaQuery.of(context).size.width / 2,
+                            margin: EdgeInsets.all(10.0),
+                            height: MediaQuery.of(context).size.height / 6,
+                            width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Color(0xFF48b1bf),
-                                    blurRadius: 10.0, // soften the shadow
-                                    spreadRadius: 2.0, //extend the shadow
-                                    offset: Offset(
-                                      3.0, // Move to right 10  horizontally
-                                      3.0, // Move to bottom 10 Vertically
-                                    ),
-                                  )
+                                      color: Color(0xFFffc5bf),
+                                      blurRadius: 10.0,
+                                      offset: Offset(1, 8.0))
                                 ],
-                                gradient: LinearGradient(colors: color),
+                                color: Color(0xFFf67280),
                                 borderRadius: BorderRadius.circular(20)),
                             child: Center(
                                 child: Text(
                               "Dominant Frequency",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                                fontFamily: "Comfortaa",
+                                fontSize: 18,
+                                color: Colors.white,
+                              ),
                             )),
                           )))),
-            ],
-          ),
-          SizedBox(height: 30),
-          Row(
-            children: <Widget>[
               Expanded(
                   child: Padding(
                       padding: EdgeInsets.all(5),
@@ -119,30 +100,27 @@ class DashBoard extends StatelessWidget {
                                 toastLength: Toast.LENGTH_SHORT);
                           },
                           child: Container(
-                            height: MediaQuery.of(context).size.height / 5,
-                            width: MediaQuery.of(context).size.width / 2,
+                            margin: EdgeInsets.all(10.0),
+                            height: MediaQuery.of(context).size.height / 6,
+                            width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
+                                color: Color(0xFFc06c84),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Color(0xFF48b1bf),
-                                    blurRadius: 10.0, // soften the shadow
-                                    spreadRadius: 2.0, //extend the shadow
-                                    offset: Offset(
-                                      3.0, // Move to right 10  horizontally
-                                      3.0, // Move to bottom 10 Vertically
-                                    ),
-                                  )
+                                      color: Color(0xFFecd5e3),
+                                      blurRadius: 10.0,
+                                      offset: Offset(1, 8.0))
                                 ],
-                                gradient: LinearGradient(colors: color),
                                 borderRadius: BorderRadius.circular(20)),
                             child: Center(
                                 child: Text(
                               "Targeted Displacement",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                                fontFamily: "Comfortaa",
+                                fontSize: 18,
+                                color: Colors.white,
+                              ),
                             )),
                           )))),
               Expanded(
@@ -156,36 +134,31 @@ class DashBoard extends StatelessWidget {
                                     builder: (context) => FrequencyPara()));
                           },
                           child: Container(
-                            height: MediaQuery.of(context).size.height / 5,
-                            width: MediaQuery.of(context).size.width / 2,
+                            margin: EdgeInsets.all(10.0),
+                            height: MediaQuery.of(context).size.height / 6,
+                            width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
-                                    color: Color(0xFF48b1bf),
-                                    blurRadius: 10.0, // soften the shadow
-                                    spreadRadius: 2.0, //extend the shadow
-                                    offset: Offset(
-                                      3.0, // Move to right 10  horizontally
-                                      3.0, // Move to bottom 10 Vertically
-                                    ),
-                                  )
+                                      color: Color(0xFFecd5e3),
+                                      blurRadius: 10.0,
+                                      offset: Offset(1, 8.0))
                                 ],
-                                gradient: LinearGradient(colors: color),
+                                color: Color(0xFF6c567b),
                                 borderRadius: BorderRadius.circular(20)),
                             child: Center(
                                 child: Text(
                               "Frequency Domain Analysis",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
+                                fontFamily: "Comfortaa",
+                                fontSize: 18,
+                                color: Colors.white,
+                              ),
                             )),
                           )))),
             ],
-          ),
-        ],
-      )),
+          )),
     );
   }
 }

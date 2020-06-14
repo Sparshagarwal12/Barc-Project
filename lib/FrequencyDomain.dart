@@ -7,7 +7,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:maths/analysis.dart';
 
 class FrequencyPara extends StatefulWidget {
   @override
@@ -30,117 +29,146 @@ class _FrequencyPara extends State<FrequencyPara> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "SIH 2020",
-        ),
-      ),
       body: Container(
-          child: ListView(
-        children: <Widget>[
-          Center(
-              child: Text(
-            "Send Data ",
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 50),
-          )),
-          SizedBox(height: 30),
-          Container(
-            margin: EdgeInsets.all(20.0),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(25.0),
-                border: Border.all(width: 2.0, color: Colors.black)),
-            child: TextField(
-              controller: number,
-              style: TextStyle(fontFamily: "Quicksand"),
-              textAlign: TextAlign.center,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                  hintStyle: TextStyle(fontFamily: "Comfortaa"),
-                  hintText: "Enter Number of Samples",
-                  border: InputBorder.none),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.all(20.0),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(25.0),
-                border: Border.all(width: 2.0, color: Colors.black)),
-            child: TextField(
-              controller: sample,
-              style: TextStyle(fontFamily: "Quicksand"),
-              textAlign: TextAlign.center,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                  hintStyle: TextStyle(fontFamily: "Comfortaa"),
-                  hintText: "Enter Sample Frequency",
-                  border: InputBorder.none),
-            ),
-          ),
-          Container(
-            margin: EdgeInsets.all(20.0),
-            decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(25.0),
-                border: Border.all(width: 2.0, color: Colors.black)),
-            child: TextField(
-              controller: freq,
-              style: TextStyle(fontFamily: "Quicksand"),
-              textAlign: TextAlign.center,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                  hintStyle: TextStyle(fontFamily: "Comfortaa"),
-                  hintText: "Enter Number of Maximum Frequency",
-                  border: InputBorder.none),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 50, right: 50),
-            child: Container(
+          padding: EdgeInsets.only(top: 30.0),
+          color: Colors.white,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Container(
+                  alignment: Alignment.centerLeft,
+                  padding: EdgeInsets.only(top: 20.0, left: 20.0),
+                  child: Text("Freq. Domain",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(fontSize: 40, fontFamily: 'BebasNeue'))),
+              Container(
+                alignment: Alignment.center,
+                height: 60.0,
+                margin: EdgeInsets.all(20.0),
                 decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(30)),
-                child: FlatButton(
-                    onPressed: () {
-                      if (number.text != "" && sample.text != "") {
-                        Navigator.push(
-                            context,
-                            CupertinoPageRoute(
-                                builder: (context) => GetData(
-                                    context, number.text, sample.text)));
-                        Fluttertoast.showToast(
-                            msg: "Data Send", toastLength: Toast.LENGTH_SHORT);
-                      } else {
-                        Navigator.push(
-                            context,
-                            CupertinoPageRoute(
-                                builder: (context) =>
-                                    GetData(context, "2000", "2048")));
-                        Fluttertoast.showToast(
-                            msg: "Default Data Send",
-                            toastLength: Toast.LENGTH_SHORT);
-                      }
-                    },
-                    child: Text(
-                      "Submit",
-                      style: TextStyle(color: Colors.white),
-                    ))),
-          )
-        ],
-      )),
+                  color: Color(0xFFf8b195),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Color(0xFFfed7c3),
+                        blurRadius: 10.0,
+                        offset: Offset(1, 8.0))
+                  ],
+                  borderRadius: BorderRadius.circular(10.0),
+                  // border: Border.all(width: 2.0, color: Colors.black
+                  // )
+                ),
+                child: TextField(
+                  controller: number,
+                  style: TextStyle(fontFamily: "Quicksand"),
+                  textAlign: TextAlign.center,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                      hintStyle: TextStyle(fontFamily: "Comfortaa"),
+                      hintText: "Enter Number of Samples",
+                      border: InputBorder.none),
+                ),
+              ),
+              Container(
+                alignment: Alignment.center,
+                height: 60.0,
+                margin: EdgeInsets.all(20.0),
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                        color: Color(0xFFffc5bf),
+                        blurRadius: 10.0,
+                        offset: Offset(1, 8.0))
+                  ],
+                  color: Color(0xFFf67280),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: TextField(
+                  controller: sample,
+                  style: TextStyle(fontFamily: "Quicksand"),
+                  textAlign: TextAlign.center,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                      hintStyle: TextStyle(fontFamily: "Comfortaa"),
+                      hintText: "Enter Sample Frequency",
+                      border: InputBorder.none),
+                ),
+              ),
+              Container(
+                alignment: Alignment.center,
+                height: 60.0,
+                margin: EdgeInsets.all(20.0),
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                        color: Color(0xFFecd5e3),
+                        blurRadius: 10.0,
+                        offset: Offset(1, 8.0))
+                  ],
+                  color: Color(0xFFc06c84),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: TextField(
+                  controller: freq,
+                  style: TextStyle(fontFamily: "Quicksand"),
+                  textAlign: TextAlign.center,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                      hintStyle: TextStyle(fontFamily: "Comfortaa"),
+                      hintText: "Enter Number of Maximum Frequency",
+                      border: InputBorder.none),
+                ),
+              ),
+              Expanded(child: SizedBox()),
+              Padding(
+                padding: EdgeInsets.only(left: 50, right: 50, top: 10.0),
+                child: Container(
+                    width: 120,
+                    margin: EdgeInsets.only(bottom: 30.0),
+                    decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                              color: Color.fromRGBO(0, 0, 0, 0.2),
+                              blurRadius: 10.0,
+                              offset: Offset(1, 8.0))
+                        ],
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: FlatButton(
+                        onPressed: () {
+                          if (number.text != "" && sample.text != "") {
+                            Navigator.push(
+                                context,
+                                CupertinoPageRoute(
+                                    builder: (context) => GetData(
+                                        context, number.text, sample.text)));
+                            Fluttertoast.showToast(
+                                msg: "Data Send",
+                                toastLength: Toast.LENGTH_SHORT);
+                          } else {
+                            Navigator.push(
+                                context,
+                                CupertinoPageRoute(
+                                    builder: (context) =>
+                                        GetData(context, "2000", "2048")));
+                            Fluttertoast.showToast(
+                                msg: "Default Data Send",
+                                toastLength: Toast.LENGTH_SHORT);
+                          }
+                        },
+                        child: Text(
+                          "Submit",
+                          style: TextStyle(
+                              color: Colors.white, fontFamily: "Quicksand"),
+                        ))),
+              )
+            ],
+          )),
     );
   }
 }
 
 Widget GetData(BuildContext context, String number, String sample) {
   return Scaffold(
-    appBar: AppBar(
-      title: Text(
-        "SIH 2020",
-      ),
-    ),
     body: Container(
         child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -160,27 +188,23 @@ Widget GetData(BuildContext context, String number, String sample) {
                               ViewData(context, number, sample)));
                 },
                 child: Container(
-                  height: MediaQuery.of(context).size.height / 5,
+                  height: MediaQuery.of(context).size.height / 6,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xFF48b1bf),
-                          blurRadius: 10.0, // soften the shadow
-                          spreadRadius: 2.0, //extend the shadow
-                          offset: Offset(
-                            3.0, // Move to right 10  horizontally
-                            3.0, // Move to bottom 10 Vertically
-                          ),
-                        )
+                            color: Color(0xFFecd5e3),
+                            blurRadius: 10.0,
+                            offset: Offset(1, 10.0))
                       ],
-                      gradient: LinearGradient(colors: color),
+                      color: Color(0xFFff9aa2),
                       borderRadius: BorderRadius.circular(20)),
                   child: Center(
                       child: Text(
                     "Show  Data",
                     textAlign: TextAlign.center,
                     style: TextStyle(
+                        fontFamily: "Quicksand",
                         fontSize: 20,
                         color: Colors.white,
                         fontWeight: FontWeight.bold),
@@ -198,27 +222,23 @@ Widget GetData(BuildContext context, String number, String sample) {
                               PlotData(context, number, sample)));
                 },
                 child: Container(
-                  height: MediaQuery.of(context).size.height / 5,
+                  height: MediaQuery.of(context).size.height / 6,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
-                          color: Color(0xFF48b1bf),
-                          blurRadius: 10.0, // soften the shadow
-                          spreadRadius: 2.0, //extend the shadow
-                          offset: Offset(
-                            3.0, // Move to right 10  horizontally
-                            3.0, // Move to bottom 10 Vertically
-                          ),
-                        )
+                            color: Color(0xFFecd5e3),
+                            blurRadius: 10.0,
+                            offset: Offset(1, 10.0))
                       ],
-                      gradient: LinearGradient(colors: color),
+                      color: Color(0xFFcbaacb),
                       borderRadius: BorderRadius.circular(20)),
                   child: Center(
                       child: Text(
                     "Plot Data",
                     textAlign: TextAlign.center,
                     style: TextStyle(
+                        fontFamily: "Quicksand",
                         fontSize: 20,
                         color: Colors.white,
                         fontWeight: FontWeight.bold),
@@ -238,7 +258,24 @@ Widget ViewData(context, String number, String sample) {
               if (snapshot.hasData) {
                 Map data = snapshot.data;
                 if (data['freq'] != null) {
-                  return Center(child: Text(data['freq'].toString()));
+                  return ListView.builder(
+                    itemCount: data['freq'].length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Padding(
+                          padding: EdgeInsets.only(left: 20, right: 20, top: 5),
+                          child: Container(
+                            height: 40,
+                            decoration: BoxDecoration(
+                                color: Colors.teal,
+                                borderRadius: BorderRadius.circular(30)),
+                            child: Center(
+                                child: Text(
+                              data['freq'][index].toString(),
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.white),
+                            )),
+                          ));
+                    });
                 } else {
                   return Center(child: Text("No Length"));
                 }
