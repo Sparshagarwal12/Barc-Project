@@ -16,7 +16,7 @@ final auth = FirebaseAuth.instance;
 
 class _SplashScrnState extends State<SplashScrn> {
   void check() {
-    if (auth.currentUser() == null) {
+    if (auth.currentUser() != null) {
       Navigator.pushAndRemoveUntil(
           context,
           CupertinoPageRoute(builder: (context) => UserLogin()),
@@ -59,7 +59,10 @@ class _SplashScrnState extends State<SplashScrn> {
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: SpinKitFadingCube(color: Colors.black),
+              child: SpinKitFadingCube(
+                color: Colors.black,
+                size: 30.0,
+              ),
             )
           ],
         ),
